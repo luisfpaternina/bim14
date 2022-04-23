@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <data>
+    <record id="view_form_user_task" model="ir.ui.view">
+         <field name="name">view.form.user.task</field>
+         <field name="model">user.task</field>
+         <field name="arch" type="xml">
+            <form string="User Task">
+              <header>
+              </header>
+              <sheet>
+                  <group>
+                      <group>
+                          <field name="name" required="1"/>
+                       </group>
+                  </group>
+               </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_user_task" model="ir.ui.view">
+         <field name="name">view.tree.user.task</field>
+         <field name="model">user.task</field>
+         <field name="arch" type="xml">
+            <tree delete="0" edit="0">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_user_task" model="ir.actions.act_window">
+        <field name="name">User Task</field>
+        <field name="res_model">user.task</field>
+        <field name="view_id" ref="view_tree_user_task"/>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Presione para crear nuevo Registro</p>
+       </field>
+    </record>
+
+    <!-- Menú Secundario: Hereda del menú principal -->
+
+
+    <menuitem id="menu_user_task"
+        name="User"
+        parent="menu_conf"
+        sequence="40"
+        groups="ticket_pro.tiket_pro_manager_group"
+        action="action_user_task" />
+     </data>
+</odoo>

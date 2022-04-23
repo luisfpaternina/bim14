@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="bim_budget_form_view" model="ir.ui.view">
+            <field name="name">bim.budget.form.view</field>
+            <field name="model">bim.budget</field>
+            <field name="inherit_id" ref="base_bim_2.view_form_bim_budget" />
+            <field name="arch" type="xml">
+                <field name="planning_method" position="after">
+                    <field name="def_client_type"/>
+                    <field name="def_business_line"/>
+                </field>
+                <xpath expr="//field[@name='client_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='business_line']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='budget_control']" position="after">
+                    <page string="Project Start Data" name="project_start_data">
+                        <group>
+                            <group>
+                                <field name="project_code"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                            <group>
+                                <field name="contact_person"/>
+                                <field name="partner_id" invisible="1"/>
+                                <field name="invoice_address"/>
+                                <field name="delivery_address"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="access_states"/>
+                            <field name="other_info"/>
+                        </group>
+                    </page>
+            </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

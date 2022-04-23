@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="inherit_view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                    <attribute name="groups">u_custom_savia.group_allow_confirm</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="groups">u_custom_savia.group_allow_confirm</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_quotation_send'][1]" position="attributes">
+                    <attribute name="groups">u_custom_savia.group_allow_send_mail</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_quotation_send'][2]" position="attributes">
+                    <attribute name="groups">u_custom_savia.group_allow_send_mail</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_quotation_send'][3]" position="attributes">
+                    <attribute name="groups">u_custom_savia.group_allow_send_mail</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_quotation_send'][4]" position="attributes">
+                    <attribute name="groups">u_custom_savia.group_allow_send_mail</attribute>
+                </xpath>
+                <field name="partner_id" position="after">
+                    <field name="client_type"/>
+                    <field name="business_line"/>
+                </field>
+                <xpath expr="//notebook" position="inside">
+                    <page name="data_init" string="Datos iniciales de Obra">
+                        <group>
+                            <field name="project_code" required="1"/>
+                            <field name="contact_person" required="1" domain="[('parent_id', '=', partner_id)]"/>
+                            <field name="start_date" required="1"/>
+                            <field name="finish_date" required="1"/>
+                            <field name="access_states" required="1"/>
+                            <field name="others"/>
+                        </group>
+                    </page>
+                </xpath>
+                <field name="partner_invoice_id" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                <field name="partner_shipping_id" position="attributes">
+                    <attribute name="required">1</attribute> 
+                </field>
+            </field>
+        </record>
+</odoo>

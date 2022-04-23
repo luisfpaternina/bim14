@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+            <record id="u_custom_savia_partner_form_view" model="ir.ui.view">
+                <field name="name">u_custom_savia.partner.form.view</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='category_id']" position="after">
+                        <field name="family_id" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Family..."/>                    
+                    </xpath> 
+                    <xpath expr="//field[@name='vat']" position="after">
+                        <field name="potencial_client"  attrs="{'readonly': ['|', ('vat', '=', False), ('street', '=', False)]}"/>
+                    </xpath>                         
+                </field>
+            </record>
+
+            <record id="u_custom_savia_partner_view_search" model="ir.ui.view">
+                <field name="name">u_custom_savia.partner.search.inherit</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_res_partner_filter"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='email']" position="before">
+                        <field name="family_id"/>
+                        <field name="potencial_client" filter_domain="[('potencial_client', '=', True)]"/>
+                    </xpath>
+                </field>
+            </record>
+
+            <record id="view_partner_family_form" model="ir.ui.view">
+            <field name="name">Contact Family</field>
+            <field name="model">res.partner.family</field>
+            <field name="arch" type="xml">
+                <form string="Contact Family">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="parent_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_partner_family_list" model="ir.ui.view">
+            <field name="name">Contact Family</field>
+            <field name="model">res.partner.family</field>
+            <field eval="6" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Contact family">
+                    <field name="display_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_partner_family_view_search" model="ir.ui.view">
+            <field name="name">res.partner.family.view.search</field>
+            <field name="model">res.partner.family</field>
+            <field name="arch" type="xml">
+                <search string="Search Partner Family">
+                    <field name="name"/>
+                    <field name="display_name"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_partner_family_form" model="ir.actions.act_window">
+            <field name="name">Contact Family</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.family</field>
+            <field name="search_view_id" ref="res_partner_family_view_search"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new contact family
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_partner_family_form"
+        action="action_partner_family_form"
+        name="Contact Family"
+        sequence="2" parent="contacts.res_partner_menu_config"/>
+
+        </data>
+    </odoo>

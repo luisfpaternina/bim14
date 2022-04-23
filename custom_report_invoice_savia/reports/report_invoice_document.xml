@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='informations']" position="before">
+            <p class="col-auto">
+                Obra:
+                <span t-esc="o.project_id.name" t-if="o.project_id"/>
+                <br/>
+                <span t-esc="o.project_id.nombre" t-if="o.project_id"/>
+            </p>
+        </xpath>
+        <xpath expr="//table[@name='invoice_line_table']/tbody/t[@t-foreach='lines']" position="before">
+            <t t-if="o.bim_masive_certification_ids">
+            <t t-set="iterador" t-value="1"/>
+            <t t-foreach="o.bim_masive_certification_ids" t-as="certificacion">
+                <t t-if="certificacion.budget_id">
+                    <tr>
+                        <td style="background-color:rgba(0, 0, 0, 0.1);" colspan="6"><b>Presupuesto Nº:<span t-esc="certificacion.budget_id.id"/></b></td>
+                    </tr>
+                </t>
+                <t t-set="total" t-value="0"/>    
+                <tr>
+                    <td style="background-color:rgba(0, 0, 0, 0.1);" colspan="6">Certificación Masiva Nº:<span t-esc="iterador"/></td>
+                </tr>
+                <t t-set="iterador" t-value="iterador+1"/>
+                <tr>
+                    <td colspan="6"><centre><span t-esc="certificacion.note"/></centre></td>
+                </tr>
+                <t t-foreach="certificacion.certification_stage_ids" t-as="stage">
+                    <t t-if="stage">
+                    <tr>
+                        <td style="text-align: justify !important;page-break-before: avoid !important;">
+                            <span t-esc="stage.concept_id.note"/>
+                        </td>
+                        <td style="text-align: right !important;">
+                            <span t-esc="stage.concept_id.quantity"/>
+                            <span t-esc="stage.concept_id.uom_id.name"/>
+                        </td>
+                        <td/>
+                        <td style="text-align: right !important;">
+                            <span t-esc="stage.concept_id.amount_compute"/>
+                        </td>
+                        <td/>
+                        <td style="text-align: right !important;">
+                            <span t-esc="stage.concept_id.balance" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </td>
+                    </tr>
+                    </t>
+                    <t t-set="total" t-value="total+stage.amount_certif"/>
+                </t>
+                <tr>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                </tr>
+                <tr>
+                    <td><b>TOTAL</b></td>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td style="background-color: rgba(0, 0, 0, 0.1);">
+                        <span t-esc="total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+            </t>
+            </t>
+        </xpath>
+
+         <xpath expr="//table[@name='invoice_line_table']/tbody/t[@t-foreach='lines']" position="before">
+            <t t-if="o.bim_masive_chapter_ids">
+            <t t-set="iterador" t-value="1"/>
+            <t t-foreach="o.bim_masive_chapter_ids" t-as="certificacion">
+                <t t-if="certificacion.budget_id">
+                    <tr>
+                        <td style="background-color:rgba(0, 0, 0, 0.1);" colspan="6"><b>Presupuesto Nº:<span t-esc="certificacion.budget_id.id"/></b></td>
+                    </tr>
+                </t>
+                <t t-set="total" t-value="0"/>    
+                <tr>
+                    <td style="background-color:rgba(0, 0, 0, 0.1);" colspan="6">Certificación Capítulo Nº:<span t-esc="iterador"/></td>
+                </tr>
+                <t t-set="iterador" t-value="iterador+1"/>
+                <tr>
+                    <td colspan="6"><centre><span t-esc="certificacion.note"/></centre></td>
+                </tr>
+                <t t-foreach="certificacion.certification_stage_ids" t-as="stage">
+                  <t t-foreach="stage.concept_ids" t-as="cp">
+                    <t t-if="stage">
+                    <tr>
+                        <td style="text-align: justify !important;page-break-before: avoid !important;">
+                            <span t-esc="cp.code"/>
+                        </td>
+                        <td style="text-align: right !important;">
+                            <span t-esc="cp.quantity"/>
+                            <span t-esc="cp.uom_id.name"/>
+                        </td>
+                        <td/>
+                        <td style="text-align: right !important;">
+                            <span t-esc="cp.amount_compute"/>
+                        </td>
+                        <td/>
+                        <td style="text-align: right !important;">
+                            <span t-esc="cp.balance" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </td>
+                    </tr>
+                    </t>
+                    <t t-set="total" t-value="total+stage.amount_certif"/>
+                    </t>
+                </t>
+                <tr>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                </tr>
+                <tr>
+                    <td><b>TOTAL</b></td>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td style="background-color: rgba(0, 0, 0, 0.1);">
+                        <span t-esc="total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </td>
+                </tr>
+            </t>
+            </t>
+        </xpath>
+
+        <xpath expr="//span[@t-field='o.invoice_payment_term_id.note']" position="before">
+            <b>
+                FORMA DE PAGO:
+                <span t-esc="o.invoice_payment_term_id.name"/>
+            </b>
+            <br/>
+        </xpath>
+        <xpath expr="//p[@name='payment_term']" position="after">
+            <p>
+                <t t-if="o.company_id.partner_id.bank_ids">
+                    Datos Bancarios.: I.B.A.N.:<span t-esc="o.company_id.partner_id.bank_ids[0].acc_number"/>
+                </t>
+            </p>
+        </xpath>
+    </template>
+</odoo>
+
+<!-- ############################################################################################ -->
+<!-- ASÍ QUEDARÍA EL FOOTER MODIFICADO PARA LA PLANTILLA external_layout_boxed  a fecha 04/02/2022-->
+<!-- ############################################################################################ -->
+
+<!-- <?xml version="1.0"?>
+<t t-name="web.external_layout_boxed">
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="o_boxed_header">
+            <div class="row mb8">
+                <div class="col-6">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="width:425px;height:50px"/>
+                </div>
+                <div class="col-6 text-right mb4">
+                    <h4 class="mt0" t-field="company.report_header"/>
+                    ########################Lo de abajo son comentarios########################### -->
+                    <!--<div style="color:#f9c675;" name="company_address" class="float-right mb4">
+                        <span class="company_address" t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                    </div>-->
+                    <!-- ########################Fin de los comentarios###########################
+                    <div style="color:#f9c675;font-size: 0;">
+                  
+                      <span style="font-size:18px;">www.saviaproyectos.com</span>
+                     <br></br>
+                      <span style="font-size:10px">T:971 694 581 | F: 971 694 835</span>
+                     <br></br>
+                      <span style="font-size:10px">C/Pou de sa Sinia, 24 - Pol. Ind de Binissalem</span>
+                     <br></br>
+                      <span style="font-size:10px">Nave 7,8 y 9 -07350 (Binissalem) - Mallorca</span>
+                
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_boxed o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5"> -->
+                    <!-- ########################### INI ################### -->
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <!-- #################### FIN ############################### -->
+                <!-- <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+        <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout"> -->
+                    <!-- ########################### INI ################### -->
+                   <!-- <li t-if="company.phone" class="list-inline-item"><span class="o_force_ltr" t-field="company.phone"/></li>
+                    <li t-if="company.email" class="list-inline-item"><span t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item"><span t-field="company.website"/></li>
+                    <li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>-->
+                   <!--
+                   <div class = "row" t-if="company.partner_id.bank_ids" style="margin-left:3px;">
+                      <dl t-foreach = "company.partner_id.bank_ids"  t-as = "ba">
+                        <li class="list-inline-item"><t t-esc="'Datos Bancarios : I.B.A.N:'"/>: <span t-field="ba.acc_number"/></li>
+                      </dl>
+                    </div>
+                    -->
+                    <!---->
+                    <!-- ########################### FIN ################### -->
+                <!--
+                <div t-field="company.report_footer" style="text-align: justify !important;text-justify: inter-word;word-wrap: break-word;white-space: pre-wrap;word-break: break-word;"/>
+                <b><a attrs-href="#{company.website}"><span t-esc="company.website"/></a></b>
+                <div t-if="report_type == 'pdf'">
+                    Page: <span class="page"/> / <span class="topage"/> -->
+                    <!-- ########################### INI ################### -->
+                   <!-- <img t-attf-src="'data:image/*;base64,{{x_studio_iso1}}'" style="width:425px;height:50px" />-->
+                   <!-- ########################### FIN ################### -->
+                   <!-- <div style="width:120px;height:130px;margin-left:1130px;">
+                     <span t-field="res_company.x_studio_iso1" t-options-widget="&quot;image&quot;" />
+                     <span t-field="res_company.x_studio_iso2" t-options-widget="&quot;image&quot;" />
+                   </div>
+                    
+                </div>
+        </div>
+    </t> -->
+    
+
+<!-- ################################################################################ -->
+<!-- ASÍ QUEDARÍA EL FOOTER DE FORMA ESTANDAR PARA LA PLANTILLA external_layout_boxed -->
+<!-- ################################################################################ -->
+
+<!-- <?xml version="1.0"?>
+<t t-name="web.external_layout_boxed">
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="o_boxed_header">
+            <div class="row mb8">
+                <div class="col-6">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                </div>
+                <div class="col-6 text-right mb4">
+                    <h4 class="mt0" t-field="company.report_header"/>
+                    <div name="company_address" class="float-right mb4">
+                        <span class="company_address" t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_boxed o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+
+        <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+            <div class="text-center">
+                <ul class="list-inline">
+                    <li t-if="company.phone" class="list-inline-item"><span class="o_force_ltr" t-field="company.phone"/></li>
+                    <li t-if="company.email" class="list-inline-item"><span t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item"><span t-field="company.website"/></li>
+                    <li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                </ul>
+                <div t-field="company.report_footer"/>
+                <div t-if="report_type == 'pdf'">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+        </div>
+    </t>
+-->

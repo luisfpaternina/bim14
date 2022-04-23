@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <data>
+    <record id="view_form_ticket_control" model="ir.ui.view">
+         <field name="name">view.form.ticket.control</field>
+         <field name="model">ticket.control</field>
+         <field name="arch" type="xml">
+            <form string="Control de Tickets">
+              <header>
+              </header>
+              <sheet>
+                   <div class="oe_title">
+                           <h1>
+                               <field name="name" readonly="1"/>
+                           </h1>
+                        </div>
+
+                  <group>
+                      <group>
+                          <field name="entry_date" readonly="1"/>
+                       </group>
+                      <group>
+                          <field name="user_id"/>
+                          <field name="sum_hh" force_save="1" readonly="1"/>
+                       </group>
+                  </group>
+
+                  <notebook>
+                   <page name="lineas" string="Lineas">
+                     <field name="lines_ids">
+                           <tree string="Lineas"  editable="bottom">
+                                <field name="name" required="1" options='{"no_create": 1, "no_open": 1}'/>
+                                <field name="obs" required="1"/>
+                                <field name="hh" sum="Suma"/>
+                           </tree>
+                     </field>
+                    </page>
+                      <page name="Notas" string="Notas">
+                           <field name="obs"/>
+                    </page>
+                </notebook>
+
+
+               </sheet>
+
+                <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_ticket_control" model="ir.ui.view">
+         <field name="name">view.tree.ticket.control</field>
+         <field name="model">ticket.control</field>
+         <field name="arch" type="xml">
+            <tree delete="0" edit="0">
+                <field name="name"/>
+                <field name="entry_date"/>
+                <field name="user_id"/>
+                <field name="sum_hh" sum="Suma"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ticket_control" model="ir.actions.act_window">
+        <field name="name">Control</field>
+        <field name="res_model">ticket.control</field>
+        <field name="view_id" ref="view_tree_ticket_control"/>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Presione para crear nuevo Registro</p>
+       </field>
+    </record>
+
+    <menuitem id="menu_ticket_control"
+        name="Control"
+        parent="menu_control"
+        sequence="40"
+        groups="ticket_pro.tiket_pro_manager_group"
+        action="action_ticket_control" />
+     </data>
+</odoo>

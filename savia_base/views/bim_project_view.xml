@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="bim_project_form_view" model="ir.ui.view">
+            <field name="name">bim.project.form.view</field>
+            <field name="model">bim.project</field>
+            <field name="inherit_id" ref="base_bim_2.view_form_bim_project" />
+            <field name="arch" type="xml">
+                <field name="priority" position="after">
+                    <field name="client_type"/>
+                    <field name="business_line"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

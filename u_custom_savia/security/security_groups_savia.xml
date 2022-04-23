@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="construction_security_category" model="ir.module.category">
+            <field name="name">Savia</field>
+            <field name="description">Savia Users</field>
+            <field name="sequence" eval="90"/>
+        </record>
+
+        <record id="jefe_obra_security_rules_group" model="res.groups">
+            <field name="name">Jefe de Obra</field>
+            <field name="category_id" ref="construction_security_category"/>
+        </record>
+
+    </data>
+</odoo>

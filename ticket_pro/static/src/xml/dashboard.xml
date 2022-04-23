@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="ticket_pro.TicketDashboard">
+        <div class="o_ticket_dashboard container">
+            <table class="table table-sm">
+                <tr>
+                    <td class="small o_text"/>
+                    <td class="small">Total</td>
+                    <td class="small">Este año</td>
+                    <td class="small">Este mes</td>
+                    <td class="small">Mes anterior</td>
+                    <td class="small">Semana</td>
+                    <td class="small">Semana anterior</td>
+                    <td class="small">Prioridad alta</td>
+                </tr>
+                <tr class="tickets-open">
+                    <td class="o_text">Abiertos</td>
+                    <td t-esc="values['total_open']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true}'/>
+                    <td t-esc="values['total_open_this_year']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true, "search_default_this_year": true}'/>
+                    <td t-esc="values['total_open_this_month']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true, "search_default_this_month": true}'/>
+                    <td t-esc="values['total_open_last_month']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true, "search_default_last_month": true}'/>
+                    <td t-esc="values['total_open_this_week']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true, "search_default_this_week": true}'/>
+                    <td t-esc="values['total_open_last_week']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true, "search_default_last_week": true}'/>
+                    <td t-esc="values['total_open_high_priority']" class="tp_open o_dashboard_action"
+                        context='{"search_default_state_open": true, "search_default_high_priority": true}'/>
+                </tr>
+                <tr>
+                    <td class="o_text">Cerrados</td>
+                    <td t-esc="values['total_done']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true}'/>
+                    <td t-esc="values['total_done_this_year']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true, "search_default_this_year": true}'/>
+                    <td t-esc="values['total_done_this_month']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true, "search_default_this_month": true}'/>
+                    <td t-esc="values['total_done_last_month']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true, "search_default_last_month": true}'/>
+                    <td t-esc="values['total_done_this_week']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true, "search_default_this_week": true}'/>
+                    <td t-esc="values['total_done_last_week']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true, "search_default_last_week": true}'/>
+                    <td t-esc="values['total_done_high_priority']" class="tp_done o_dashboard_action"
+                        context='{"search_default_state_done": true, "search_default_high_priority": true}'/>
+                </tr>
+            </table>
+        </div>
+    </t>
+</templates>

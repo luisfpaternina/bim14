@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+
+    <record id="view_form_bim_budget" model="ir.ui.view">
+        <field name="name">view.form.bim.budget</field>
+        <field name="model">bim.budget</field>
+        <field name="inherit_id" ref="base_bim_2.view_form_bim_budget"/>
+        <field name="arch" type="xml">
+            <button name="action_budget_send" position="attributes">
+                <attribute name="groups">u_custom_savia.group_allow_send_mail</attribute>
+            </button>
+            <field name="template_id" position="after">
+                <field name="client_type"/>
+                <field name="business_line"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

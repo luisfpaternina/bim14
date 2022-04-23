@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_picking_form_standard_price" model="ir.ui.view">
+            <field name="name">view.picking.form.standard.price</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="after">
+                    <group name="cost_group" col="6" groups="picking_standard_price.group_picking_cost">
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="picking_total">
+                            <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                <label for="total_cost" />
+                            </div>
+                            <field name="total_cost" readonly="1" force_save="1" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'company_id.currency_id'}"/>
+                        </group>
+                    </group>
+                </xpath>
+               <xpath expr="//header" position="inside">
+                   <button type="object" name="update_picking_total_cost" string="Update Cost" groups="picking_standard_price.group_picking_cost"/>
+               </xpath>
+               <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="after">
+                   <field name="product_cost" groups="picking_standard_price.group_picking_cost"/>
+                   <field name="purchase_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

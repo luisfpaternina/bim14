@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+            <record id="crm_lead_view_form" model="ir.ui.view">
+                <field name="name">crm.lead.form</field>
+                <field name="model">crm.lead</field>
+                <field name="inherit_id" ref="crm.crm_lead_view_form" />
+                <field name="arch" type="xml">
+                    <!-- Leads -->
+                    <xpath expr="//group[@name='lead_partner']/field[@name='partner_id']" position="after">
+                        <field name="family_id" options="{'no_create_edit': True}" placeholder="Family..." />                
+                        <field name="project_type" />                    
+                        <field name="tender_date" widget="date" placeholder="Tender date..." /> 
+                        <field name="client_type"/>
+                        <field name="business_line"/>          
+                    </xpath>
+                    <!-- Oportunities -->
+                    <xpath expr="//group[@name='opportunity_partner']/field[@name='partner_id']" position="after">
+                        <field name="family_id" options="{'no_create_edit': True}" placeholder="Family..." />                
+                        <field name="project_type"/>                    
+                        <field name="tender_date" widget="date" placeholder="Tender date..." />   
+                        <field name="client_type"/>
+                        <field name="business_line"/>                           
+                    </xpath>     
+                    <xpath expr="//field[@name='user_id']" position="after">
+                        <field name="users_ids" invisible="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='user_id']" position="attributes">
+                        <attribute name="domain">[('id', 'in', users_ids)]</attribute>
+                    </xpath>
+               
+                </field>
+            </record>
+            <record id="quick_create_opportunity_form_inherit" model="ir.ui.view">
+                <field name="name">crm.lead.form.quick_create_inherit</field>
+                <field name="model">crm.lead</field>
+                <field name="inherit_id" ref="crm.quick_create_opportunity_form" />
+                <field name="arch" type="xml">
+                    <field name="partner_id" position="after">
+                        <field name="family_id"/>
+                    </field>
+                </field>
+            </record>
+        </data>
+
+    </odoo>

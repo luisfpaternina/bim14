@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<t t-name="web.external_layout_boxed">
+    <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+        <div class="o_boxed_header">
+        <div class="row mb8">
+            <div class="col-6">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="width:425px;height:50px"/>
+            </div>
+            <div class="col-6 text-right mb4">
+                <h4 class="mt0" t-field="company.report_header"/>
+                <!--<div style="color:#f9c675;" name="company_address" class="float-right mb4">
+                    <span class="company_address" t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                </div>-->
+                <div style="color:#f9c675;font-size: 0;">
+              
+                  <span style="font-size:18px;">www.saviaproyectos.com</span>
+                 <br></br>
+                  <span style="font-size:10px">T:971 694 581 | F: 971 694 835</span>
+                 <br></br>
+                  <span style="font-size:10px">C/Pou de sa Sinia, 24 - Pol. Ind de Binissalem</span>
+                 <br></br>
+                  <span style="font-size:10px">Nave 7,8 y 9 -07350 (Binissalem) - Mallorca</span>
+            
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div t-attf-class="article o_report_layout_boxed o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+        <div class="pt-5">
+            <!-- This div ensures that the address is not cropped by the header. -->
+            <t t-call="web.address_layout"/>
+        </div>
+        <t t-raw="0"/>
+    </div>
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+        <div class="text-center" style="border-top: 1px solid black;">
+          <p style="font-size: 9px !important;text-align:justify !important;"><t t-esc="company.report_footer"/></p>
+                <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
+                     adding d-inline class fixes the problem-->
+                          <!-- HECTOR MAGIC -->
+            <!-- <div name="financial_infos">
+                <span t-field="company.report_footer"/>
+            </div>-->
+        </div>
+        <div style="width:210px;height:100px;margin-left:600px;">
+            <span style="display: inline-block;">
+              <img t-att-src="image_data_uri(res_company.x_studio_iso1)" alt="iso1" style="width:90px;height:90px"/>
+            </span>
+            <span style="display: inline-block;">
+              <img t-att-src="image_data_uri(res_company.x_studio_iso2)" alt="iso2" style="width:90px;height:90px"/>
+            </span>
+        </div>
+        <div t-if="report_type == 'pdf'" class="text-muted">
+              Page: <span class="page"/> / <span class="topage"/>
+        </div>
+         
+    </div>
+</t>

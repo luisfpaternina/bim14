@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base.paperformat_euro" model="report.paperformat">
+        <field name="margin_bottom">42</field>
+    </record>
+</odoo>

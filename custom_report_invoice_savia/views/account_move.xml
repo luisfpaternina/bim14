@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherit_view_account_move_with_bim" model="ir.ui.view">
+        <field name="name">inherit.form.account.move</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="base_bim_2.bim_move_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='budget_id']" position="after">
+                <field name="bim_masive_certification_ids" widget="many2many_tags"/>
+                <field name="bim_masive_chapter_ids" widget="many2many_tags"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>  

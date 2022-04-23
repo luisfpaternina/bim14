@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <record id="view_form_ticket_pro" model="ir.ui.view">
+         <field name="name">view.form.ticket.pro</field>
+         <field name="model">ticket.pro</field>
+         <field name="arch" type="xml">
+            <form string="Listado de Ticket">
+              <header>
+
+                  <button name="exe_autorizar" string="Autorizar" class="oe_highlight" type="object" groups="ticket_pro.tiket_pro_manager_group"
+                        attrs="{'invisible': [('state','!=','borrador')]}" />
+
+                  <button name="exe_work" string="Trabajando" class="oe_highlight" type="object" groups="ticket_pro.tiket_pro_manager_group"
+                        attrs="{'invisible': [('state','!=','aprobado')]}" />
+
+                  <button name="exe_actualizar" string="Actualizar" class="oe_highlight" type="object" groups="ticket_pro.tiket_pro_manager_group"
+                        attrs="{'invisible': [('state','!=','trabajando')]}" />
+
+                  <button name="exe_resuelto" string="Resuelto" class="oe_highlight" type="object" groups="ticket_pro.tiket_pro_manager_group"
+                        attrs="{'invisible': [('state','!=','actualizar')]}" />
+
+                  <button name="exe_abrir" string="Abrir" type="object"
+                        attrs="{'invisible': [('state','!=','resuelto'),('state','!=','calificado'),('state','!=','stop')]}"
+                         confirm="¿Estás seguro de que deseas Abrir el Ticket? Te recomendamos crear otro ticket y relacionarlo."/>
+
+                  <button name="exe_close" string="Pasar a Calificado" class="oe_highlight" type="object"
+                        attrs="{'invisible': [('state','!=','resuelto')]}" />
+
+                  <button name="exe_stop" string="Parar Ticket" type="object"
+                          confirm="¿Estás seguro de que deseas Parar el Ticket?"
+                          attrs="{'invisible': [('state','=','stop')]}"/>
+
+                  <field name="state" widget="statusbar"/>
+              </header>
+
+                <div class="alert alert-success" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('state','!=','resuelto')]}">
+                    Por favor califique este <bold><a class="alert-link" href="#glosa" role="button">Ticket</a></bold> en el campo calificación y pulse <bold>Pasar a Calificado</bold>,
+                  </div>
+
+              <sheet>
+                  <div class="oe_title">
+                           <h1>
+                               <field name="name" readonly="1"/>
+                           </h1>
+                        </div>
+                  <group>
+                      <group>
+                          <field name="title" required="1" placeholder="En el módulo x ..."/>
+                          <field name="user_error_id"  required="1" widget="many2one_avatar_user" options='{"no_create": 1, "no_open": 1}'/>
+                          <field name="prioridad" required="1" />
+                           <field name="numero_veces" readonly="1" />
+                           <field name="category_id" required="1"  options='{"no_create": 1, "no_open": 1}' placeholder="Seleccione una categoría (Ventas, Compras)"/>
+
+
+                          <field name="clasificacion"/>
+
+                          <field name="char_note"/>
+                          <field name="advance" required="1"/>
+
+                          <field name="user_task_id"/>
+                          <field name="contract_type"/>
+                       </group>
+                      <group>
+                          <field name="comprobante_01_name" invisible="1"/>
+                          <field name="comprobante_01" filename="comprobante_01_name"/>
+                          <field name="ticket_id"  options='{"no_create": 1, "no_open": 1}'/>
+                          <field name="entry_date" readonly="1"/>
+                          <field name="end_date" readonly="1"/>
+                          <field name="end_will_end" />
+                          <field name="type" required="1"/>
+                          <field name="user_id"  widget="many2one_avatar_user" readonly="1"/>
+                          <field name="project_id"/>
+                          <field name="module_odoo"/>
+
+                          <field name="user_work_id"  widget="many2one_avatar_user"/>
+
+                          <field name="calificacion" widget="priority" attrs="{'invisible': [('state', '!=', 'resuelto'),('state', '!=', 'calificado')]}"/>
+                          <field name="obs_calificacion" attrs="{'invisible': [('state', '!=', 'resuelto'),('state', '!=', 'calificado')]}"/>
+                       </group>
+                  </group>
+
+                  <notebook>
+                   <page name="Note" string="Notas">
+                        <field name="obs" required="1" placeholder="Descripción detallada del error: (Qué usuario, Qué documento, Qué estaba haciendo:)"/>
+                        <field name="obs_solucion" attrs="{'required': [('state','==','trabajando')]}" placeholder="Notas de la Solución (Esto lo llena el Consultor)"/>
+                        <field name="obs_stop" placeholder="Notas porque el ticket esta parado: (Complejo, No es necesario, Desarrollo)"/>
+                    </page>
+
+                      <page name="Questions and Answers" string="Preguntas y Respuestas">
+                          <field name="question_ids">
+                           <tree string="Preguntas y respuestas" editable="bottom">
+                                <field name="question"/>
+                                <field name="answer"/>
+                                <field name="user_id" readonly="1"/>
+                                <field name="entry_date" readonly="1"/>
+                           </tree>
+                     </field>
+                      </page>
+
+                     <page name="price" string="Valoracion">
+                          <group>
+                              <field name="hours"/>
+                              <field name="price"/>
+                          </group>
+                    </page>
+
+                      <page name="Other" string="Otros">
+                          <group>
+                               <field name="note_id"/>
+                               <field name="company_id" readonly="1"/>
+
+                          </group>
+                      </page>
+                </notebook>
+
+
+               </sheet>
+                <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_ticket_pro" model="ir.ui.view">
+         <field name="name">view.tree.ticket.pro</field>
+         <field name="model">ticket.pro</field>
+         <field name="arch" type="xml">
+            <tree js_class="ticket_list_dashboard"
+                  decoration-muted="state == 'resuelto'"
+                  decoration-warning="state == 'stop'"
+                  decoration-danger="state == 'borrador'"
+                  decoration-primary="state=='aprobado'"
+                  decoration-success="state=='trabajando'">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="prioridad" optional="show"/>
+                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="user_error_id"  widget="many2one_avatar_user" optional="show"/>
+                <field name="user_work_id" optional="hidden" widget="many2one_avatar_user"/>
+                <field name="entry_date" optional="show"/>
+                <field name="end_will_end"/>
+                <field name="hours" sum="Total" optional="hidden"/>
+                <field name="price" sum="Total" optional="hidden"/>
+                <field name="end_date" optional="show"/>
+                <field name="char_note" optional="hidden"/>
+                <field name="advance" optional="show"/>
+                <field name="category_id"/>
+                <field name="project_id" optional="hidden"/>
+                <field name="numero_veces" sum="Total" optional="show"/>
+                <field name="ticket_id" optional="show"/>
+                <field name="calificacion" widget="priority" optional="show"/>
+                <field name="clasificacion" optional="show"/>
+                <field name="type" optional="hidden"/>
+                <field name="note_id" optional="hidden"/>
+                <field name="module_odoo" optional="hidden"/>
+                <field name="user_task_id"/>
+                <field name="contract_type" optional="hide"/>
+                <field name="state"
+                       decoration-danger="state == 'borrador'"
+                       decoration-warning="state == 'aprobado'"
+                       decoration-success="state == 'resuelto' or state == 'calificado'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ticket.pro search view -->
+    <record id="ticket_pro_view_search" model="ir.ui.view">
+        <field name="name">ticket.pro.view.search</field>
+        <field name="model">ticket.pro</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="user_id"/>
+                <filter name="state_open" string="Abiertos" domain="[('state', 'not in', ['resuelto', 'calificado'])]"/>
+                <filter name="state_done" string="Cerrados" domain="[('state', 'in', ['resuelto', 'calificado'])]"/>
+                <separator/>
+                <filter name="this_week" string="Esta semana"
+                        domain="[('entry_date', '&gt;=', (context_today() + relativedelta(weeks=-1, weekday=0)).strftime('%Y-%m-%d')),
+                                 ('entry_date', '&lt;=', (context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d'))]"/>
+                <filter name="last_week" string="Semana anterior"
+                        domain="[('entry_date', '&gt;=', (context_today() + relativedelta(weeks=-2, weekday=0)).strftime('%Y-%m-%d')),
+                                 ('entry_date', '&lt;=', (context_today() + relativedelta(weeks=-1, weekday=6)).strftime('%Y-%m-%d'))]"/>
+                <filter name="this_month" string="Este mes"
+                        domain="[('entry_date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                 ('entry_date', '&lt;=', (context_today() + relativedelta(day=1, months=1, days=-1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="last_month" string="Mes anterior"
+                        domain="[('entry_date', '&gt;=', (context_today() + relativedelta(day=1, months=-1)).strftime('%Y-%m-%d')),
+                                 ('entry_date', '&lt;=', (context_today() + relativedelta(day=1, days=-1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="this_year" string="Este año"
+                        domain="[('entry_date', '&gt;=', (context_today() + relativedelta(day=1, month=1)).strftime('%Y-%m-%d')),
+                                 ('entry_date', '&lt;=', (context_today() + relativedelta(day=1, month=1, years=1, days=-1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="high_priority" string="Prioridad alta" domain="[('prioridad', '=', 'alta')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ticket_pro" model="ir.actions.act_window">
+        <field name="name">Ticket</field>
+        <field name="res_model">ticket.pro</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_ticket_pro"/>
+    </record>
+
+    <!-- Menú superior o principal: no hereda de otro menú -->
+    <menuitem id="ticket_menu_main" name="Soporte" sequence="100"  web_icon="ticket_pro,static/description/icon.png"/>
+
+    <!-- Menú Secundario: Hereda del menú principal -->
+    <menuitem id="menu_ticket_2" name="Ticket" parent="ticket_menu_main" sequence="10"/>
+
+
+    <menuitem id="menu_ticket_3"
+        name="Ticket"
+        parent="menu_ticket_2"
+        sequence="30"
+        action="action_ticket_pro" />
+
+    <!-- Acciones para el dashboard -->
+    <record id="ticket_action_dashboard" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">ticket.pro</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No hay tickets para mostrar.
+            </p>
+        </field>
+    </record>
+
+</odoo>

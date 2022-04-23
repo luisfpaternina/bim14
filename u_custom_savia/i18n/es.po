@@ -1,0 +1,414 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* u_custom_savia
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210111\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-18 03:29+0000\n"
+"PO-Revision-Date: 2021-03-17 23:32-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+"X-Generator: Poedit 2.4.1\n"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__access_states
+msgid "Access States"
+msgstr "Estados Accesos"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: u_custom_savia
+#: model:res.groups,name:u_custom_savia.group_allow_confirm
+msgid "Allow Confirmed Sales"
+msgstr "Permitir Confirmar Ventas"
+
+#. module: u_custom_savia
+#: model:res.groups,name:u_custom_savia.group_allow_send_mail
+msgid "Allow Send Mail Sales"
+msgstr "Permitir Envíar Correos"
+
+#. module: u_custom_savia
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.res_partner_family_view_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_res_partner
+msgid "Bim Partner "
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_bim_budget
+msgid "Budgets"
+msgstr "Presupuestos"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_bank_statement_line__business_line
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_move__business_line
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_payment__business_line
+#: model:ir.model.fields,field_description:u_custom_savia.field_bim_budget__business_line
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__business_line
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__business_line
+msgid "Business Line"
+msgstr "Línea de Negocio"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__child_ids
+msgid "Child Family"
+msgstr "Hijo"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_bank_statement_line__client_type
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_move__client_type
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_payment__client_type
+#: model:ir.model.fields,field_description:u_custom_savia.field_bim_budget__client_type
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__client_type
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__client_type
+msgid "Client Type"
+msgstr "Tipología de Cliente"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_project_project__code
+msgid "Code"
+msgstr "Código"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__color
+msgid "Color Index"
+msgstr "Color"
+
+#. module: u_custom_savia
+#: model:ir.actions.act_window,name:u_custom_savia.action_partner_family_form
+#: model:ir.ui.menu,name:u_custom_savia.menu_partner_family_form
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.view_partner_family_form
+msgid "Contact Family"
+msgstr "Contacto de Familia"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__contact_person
+msgid "Contact Person"
+msgstr "Persona de contacto"
+
+#. module: u_custom_savia
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.view_partner_family_list
+msgid "Contact family"
+msgstr "Contacto de Familia"
+
+#. module: u_custom_savia
+#: model_terms:ir.actions.act_window,help:u_custom_savia.action_partner_family_form
+msgid "Create a new contact family"
+msgstr "Crear nuevo contacto de familia"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_move__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_bim_budget__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_project_project__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_users__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__display_name
+#: model:ir.model.fields,field_description:u_custom_savia.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__family_id
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner__family_id
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_users__family_id
+msgid "Family"
+msgstr "Familia"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__name
+msgid "Family Name"
+msgstr "Nombre Familia"
+
+#. module: u_custom_savia
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.u_custom_savia_partner_form_view
+msgid "Family..."
+msgstr "Familia..."
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__finish_date
+msgid "Finish Date"
+msgstr "Fecha finalización"
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__client_type__hotel
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__client_type__hotel
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__client_type__hotel
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__client_type__hotel
+msgid "Hoteles/Camping"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_move__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_bim_budget__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_project_project__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_users__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__id
+#: model:ir.model.fields,field_description:u_custom_savia.field_stock_picking__id
+msgid "ID"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__client_type__institution
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__client_type__institution
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__client_type__institution
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__client_type__institution
+msgid "Instituciones"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:res.groups,name:u_custom_savia.jefe_obra_security_rules_group
+msgid "Jefe de Obra"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_move____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_bim_budget____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_project_project____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_users____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order____last_update
+#: model:ir.model.fields,field_description:u_custom_savia.field_stock_picking____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__business_line__lic
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__business_line__lic
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__business_line__lic
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__business_line__lic
+msgid "Licitación"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__business_line__maint
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__business_line__maint
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__business_line__maint
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__business_line__maint
+msgid "Mantenimiento"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__revised__no
+msgid "No"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__business_line__project
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__business_line__project
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__business_line__project
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__business_line__project
+msgid "Obra/Proyecto"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__others
+msgid "Others"
+msgstr "Otros"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__parent_id
+msgid "Parent Family"
+msgstr "Padre"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner_family__parent_path
+msgid "Parent Path"
+msgstr "Padres"
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_res_partner_family
+msgid "Partner Family"
+msgstr "Cliente Familia"
+
+#. module: u_custom_savia
+#: code:addons/u_custom_savia/models/inherit_account_move.py:0
+#: code:addons/u_custom_savia/models/inherit_sale_order.py:0
+#: code:addons/u_custom_savia/models/inherit_stock_picking.py:0
+#, python-format
+msgid "Partner is potencial customer, please, uncheck field in customer form."
+msgstr ""
+"El cliente es un cliente potencial, desmarque la opción en la ficha del "
+"cliente."
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_partner__potencial_client
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_users__potencial_client
+msgid "Potencial Client"
+msgstr "Cliente potencial"
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__client_type__private
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__client_type__private
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__client_type__private
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__client_type__private
+msgid "Privado"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_project_project
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__project_type__project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__project_code
+msgid "Project Code"
+msgstr "Código de Proyecto"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__project_type
+msgid "Project Type"
+msgstr "Tipo de Proyecto"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_bank_statement_line__revised
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_move__revised
+#: model:ir.model.fields,field_description:u_custom_savia.field_account_payment__revised
+msgid "Revised"
+msgstr "Revisado"
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: u_custom_savia
+#: model:ir.module.category,name:u_custom_savia.construction_security_category
+msgid "Savia"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__business_line__acuat
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__business_line__acuat
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__business_line__acuat
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__business_line__acuat
+msgid "Savia Acuatic"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__business_line__play
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__business_line__play
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__business_line__play
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__business_line__play
+msgid "Savia Play"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.module.category,description:u_custom_savia.construction_security_category
+msgid "Savia Users"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__business_line__wood
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__bim_budget__business_line__wood
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__business_line__wood
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__sale_order__business_line__wood
+msgid "Savia Wood"
+msgstr ""
+
+#. module: u_custom_savia
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.res_partner_family_view_search
+msgid "Search Partner Family"
+msgstr "Buscar Cliente Familia"
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__account_move__revised__si
+msgid "Si"
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields.selection,name:u_custom_savia.selection__crm_lead__project_type__standard
+msgid "Standart Product"
+msgstr "Producto Estándar"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_sale_order__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_res_users__tag_id
+msgid "Tag"
+msgstr "Categoría"
+
+#. module: u_custom_savia
+#: model:ir.model.fields,field_description:u_custom_savia.field_crm_lead__tender_date
+msgid "Tender Date"
+msgstr ""
+
+#. module: u_custom_savia
+#: model_terms:ir.ui.view,arch_db:u_custom_savia.crm_lead_view_form
+msgid "Tender date..."
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model.fields,help:u_custom_savia.field_res_partner_family__active
+msgid "The active field allows you to hide the family without removing it."
+msgstr ""
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
+
+#. module: u_custom_savia
+#: model:ir.model,name:u_custom_savia.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: u_custom_savia
+#: code:addons/u_custom_savia/models/inherit_res_partner.py:0
+#, python-format
+msgid "You can not create recursive family."
+msgstr "No puede crear registros recursivos"
