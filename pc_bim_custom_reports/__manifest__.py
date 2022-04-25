@@ -20,7 +20,7 @@
 
     'data': [
         
-        #'views/account_move_payroll.xml',
+        'views/bim_budget.xml',
                
     ],
     'installable': True
