@@ -15,11 +15,12 @@
 
         'base',
         'bim_project',
+        'base_bim_2',
     ],
 
     'data': [
         
-        #'views/account_move_payroll.xml',
+        'views/bim_budget.xml',
                
     ],
     'installable': True

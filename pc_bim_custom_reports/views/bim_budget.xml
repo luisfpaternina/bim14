@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherit_view_form_bim_budget" model="ir.ui.view">
+        <field name="name">bim.budget.form.inherit</field>
+        <field name="model">bim.budget</field>
+        <field name="inherit_id" ref="base_bim_2.view_form_bim_budget"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form/header" position="inside">
+                <button 
+                name="%(base_bim_2.bim_certification_report_wizard_action)d"
+                string="Certification lfpv"
+                type="action"
+                class="btn-primary"
+                groups="base_bim_2.group_user_bim"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>     
