@@ -15,6 +15,7 @@
 
         'base',
         'bim_project',
+        'base_bim_2',
     ],
 
     'data': [
