@@ -20,7 +20,10 @@
 
     'data': [
         
+        'security/ir.model.access.csv',
+        'wizard/bim_certification_report.xml',
         'views/bim_budget.xml',
+        'reports/certification_report.xml',
                
     ],
     'installable': True

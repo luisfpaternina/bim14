@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--
+        <record id="bim_security_rules_category" model="ir.module.category">
+            <field name="name">BIM</field>
+            <field name="description">BIM Project Access Rules</field>
+            <field name="sequence" eval="90"/>
+        </record>
+        -->
+
+    </data>
+</odoo>
