@@ -1,1 +1,1 @@
-from . import res_company
+from . import bim_budget

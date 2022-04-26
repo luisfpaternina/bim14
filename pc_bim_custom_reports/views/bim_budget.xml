@@ -8,8 +8,8 @@
 
             <xpath expr="//form/header" position="inside">
                 <button 
-                name="%(base_bim_2.bim_certification_report_wizard_action)d"
-                string="Certification lfpv"
+                name="%(pc_bim_custom_reports.bim_certification_report_wizard_action_2)d"
+                string="Certificación Licitaciones"
                 type="action"
                 class="btn-primary"
                 groups="base_bim_2.group_user_bim"/>
@@ -17,4 +17,4 @@
 
         </field>
     </record>
-</odoo>     
+</odoo>
