@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 20:43+0000\n"
-"PO-Revision-Date: 2022-04-26 20:43+0000\n"
+"POT-Creation-Date: 2022-04-27 12:18+0000\n"
+"PO-Revision-Date: 2022-04-27 12:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,23 @@ msgid "<strong>TOTAL</strong>"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "<strong>TOTALS</strong>"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "AMOUNT"
+msgstr "IMPORTE"
+
+#. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "Afecta a"
 msgstr ""
 
 #. module: pc_bim_custom_reports
@@ -41,10 +56,15 @@ msgid "Assets and discounts"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+msgid "BUDGET"
+msgstr "PRESUPUESTO"
+
+#. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__budget_id
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.bim_certification_report_wizard_lic_form
 msgid "Budget"
-msgstr ""
+msgstr "Presupuesto"
 
 #. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
@@ -52,7 +72,7 @@ msgstr ""
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Budget."
-msgstr ""
+msgstr "Presupuesto"
 
 #. module: pc_bim_custom_reports
 #: model:ir.model,name:pc_bim_custom_reports.model_bim_budget
@@ -60,23 +80,39 @@ msgid "Budgets"
 msgstr "Presupuestos"
 
 #. module: pc_bim_custom_reports
-#: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
-#, python-format
-msgid "CERTIFICATION COMPARISON - BUDGET"
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+msgid "CERT"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#, python-format
+msgid "CERTIFICATION COMPARISON - BUDGET"
+msgstr "COMPARACIÓN DE CERTIFICACIONES - PRESUPUESTO"
+
+#. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "CODE"
 msgstr "CÓDIGO"
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "CONCEPT"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "CURRENT"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 #, python-format
 msgid "CURRENT CERTIFICATION REPORT AND TO ORIGIN"
 msgstr ""
@@ -99,9 +135,16 @@ msgid "Certificación Licitaciones"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model:ir.actions.report,name:pc_bim_custom_reports.id_report_template_compare_2
+#: model:ir.actions.report,name:pc_bim_custom_reports.id_template_origin_cert_report
+#: model:ir.actions.report,name:pc_bim_custom_reports.report_template_certification_lic
+msgid "Certificación licitaciones"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: model:ir.actions.act_window,name:pc_bim_custom_reports.bim_certification_report_wizard_action_2
 msgid "Certification Report"
-msgstr "Reporte de certificación"
+msgstr "Reporte de certificación licitaciones"
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields.selection,name:pc_bim_custom_reports.selection__bim_certification_report_wizard2__display_type__origin
@@ -114,7 +157,7 @@ msgstr "Certificación a Origen"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Code"
-msgstr "Código"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields.selection,name:pc_bim_custom_reports.selection__bim_certification_report_wizard2__display_type__compare
@@ -127,7 +170,7 @@ msgstr "Comparativo"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Concept"
-msgstr "Concepto"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__create_uid
@@ -140,17 +183,29 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "Crédito o Descuento"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Current"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+msgid "DIFFERENCE"
+msgstr "DIFERENCIA"
+
+#. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Difference."
-msgstr ""
+msgstr "Diferencia"
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_budget__display_name
@@ -198,23 +253,38 @@ msgid "Notes"
 msgstr "Notas"
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "ORIGIN"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Origin"
-msgstr "Origen"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "PREVIOUS"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
 msgid "PRICE"
 msgstr "PRECIO"
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "PRINTING DATE"
 msgstr "FECHA"
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "PROJECT"
 msgstr "OBRA"
 
@@ -229,7 +299,7 @@ msgstr ""
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Price"
-msgstr "PRECIO"
+msgstr "Precio"
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.bim_certification_report_wizard_lic_form
@@ -252,7 +322,7 @@ msgstr "Imprimir Tipo"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Printing Date"
-msgstr ""
+msgstr "Fecha"
 
 #. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
@@ -263,7 +333,13 @@ msgid "Project"
 msgstr "Obra"
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "QUANT"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
 msgid "QUANTITY"
 msgstr "CANTIDAD"
 
@@ -294,14 +370,22 @@ msgid "TOTALS"
 msgstr ""
 
 #. module: pc_bim_custom_reports
-#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__total_type
-msgid "Totalization"
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "Total"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__total_type
+msgid "Totalization"
+msgstr "Totalización"
+
+#. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "UNIT"
-msgstr ""
+msgstr "UNIDAD"
 
 #. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
@@ -311,6 +395,13 @@ msgid "Unit"
 msgstr "Unidad"
 
 #. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
+msgid "Valor"
+msgstr "Valor"
+
+#. module: pc_bim_custom_reports
 #: model:ir.model,name:pc_bim_custom_reports.model_bim_certification_report_wizard2
 msgid "bim.certification.report.wizard2"
-msgstr ""
+msgstr "Wizard Certificación licitaciones"
