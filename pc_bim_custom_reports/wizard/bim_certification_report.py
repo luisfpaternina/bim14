@@ -161,7 +161,14 @@ class BimCertificationReportWizard2(models.TransientModel):
     
     def print_pdf(self):
         # Imprimir Qweb
-        return {'type': 'ir.actions.report','report_name': 'pc_bim_custom_reports.certification_report_2','report_type':"qweb-pdf"}
+        if self.display_type == 'general':
+            return {'type': 'ir.actions.report','report_name': 'pc_bim_custom_reports.certification_report_2','report_type':"qweb-pdf"}
+        elif self.display_type == 'compare':
+            return {'type': 'ir.actions.report','report_name': 'pc_bim_custom_reports.compare_cert_report2','report_type':"qweb-pdf"}
+        elif self.display_type == 'origin':
+            return {'type': 'ir.actions.report','report_name': 'pc_bim_custom_reports.template_origin_cert_report2','report_type':"qweb-pdf"}
+        else:
+            raise Warning("No han seleccionado ningun tipo")
 
     def check_report_xls(self):
         budget = self.budget_id
