@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record id="view_account_payroll_import_tree" model="ir.ui.view">
+            <field name="name">account.payroll.import.tree</field>
+            <field name="model">account.payroll.import</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORM -->
+        <record id="view_account_payroll_import_form" model="ir.ui.view">
+            <field name="name">account.payroll.import.form</field>
+            <field name="model">account.payroll.import</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button 
+                        name="send_records"
+                        string="SEND RECORDS"
+                        type="object"
+                        class="oe_highlight"
+                        confirm="Are you sure?"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id" options="{'no_create': True, 'no_create_edit':True}" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date" required="1"/>
+                            </group>
+                            <group>
+
+                            </group>
+                            <group>
+
+                            </group>
+                            <group>
+
+                            </group>
+                            <group>
+
+                            </group>
+                            <field name="import_line_ids">
+                                <tree editable="bottom">
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                    <field name="account_id" options="{'no_create': True, 'no_create_edit':True}" domain = "[('is_payroll_account','=',True)]"/>
+                                    <field name="amount"/>
+                                    <field name="import_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACCIÓN DE VENTANA -->
+        <record model="ir.actions.act_window" id="action_view_account_payroll_import">
+            <field name="name">Account payroll import</field>
+            <field name="res_model">account.payroll.import</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create new record
+                </p>
+            </field>
+        </record>
+
+        <!-- ELEMENTO DEL MENU -->
+        <menuitem 
+            id="menu_account_payroll_import" 
+            name="Account payroll import" 
+            parent="account_payroll_ext.menu_principal_account_move_payroll"
+            action="action_view_account_payroll_import"
+            />
+
+    </data>
+</odoo>

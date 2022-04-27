@@ -11,7 +11,6 @@
                 <tree>
                     <field name="name"/>
                     <field name="employee_id"/>
-                    <field name="project_id"/>
                 </tree>
             </field>
         </record>
@@ -51,13 +50,13 @@
                                 <field name="employee_name" invisible="1"/>
                             </group>
                             <group>
+                                <field name="date"/>
                                 <field name="code" invisible="1"/>
-                                <field name="project_id" options="{'no_create': True, 'no_create_edit':True}"/>
                             </group>
                             <group>
                                  <field name="mjs" invisible="1"/>
                                  <field name="is_done" invisible="1"/>
-                                 <field name="month"/>
+                                 <field name="month" invisible="1"/>
                             </group>
                             <group>
                                 
@@ -91,6 +90,18 @@
         </record>
         
         <!-- ACCIÓN DE VENTANA -->
+        <record model="ir.actions.act_window" id="action_view_account_move_payroll_1">
+            <field name="name">Account move payroll principal</field>
+            <field name="res_model">account.move.payroll</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create new record
+                </p>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="action_view_account_move_payroll">
             <field name="name">Account move payroll</field>
             <field name="res_model">account.move.payroll</field>
@@ -103,11 +114,17 @@
             </field>
         </record>
 
-        <!-- ELEMENTO DEL MENU -->
+        <!-- ELEMENTOS DEL MENU -->
+        <menuitem 
+            id="menu_principal_account_move_payroll"
+            name="Move payroll"
+            parent="account.menu_finance_configuration"
+            action="action_view_account_move_payroll_1"
+            />
         <menuitem 
             id="menu_account_move_payroll" 
             name="Account move payroll" 
-            parent="account.menu_finance_configuration"
+            parent="account_payroll_ext.menu_principal_account_move_payroll"
             action="action_view_account_move_payroll"
             />
 
