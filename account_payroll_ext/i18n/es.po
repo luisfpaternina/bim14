@@ -6,14 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-22 20:52+0000\n"
-"PO-Revision-Date: 2022-04-22 20:52+0000\n"
+"POT-Creation-Date: 2022-04-27 19:29+0000\n"
+"PO-Revision-Date: 2022-04-27 19:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__import_id
+msgid "Accont payroll import"
+msgstr "Importar datos asientos contables nómina"
+
+#. module: account_payroll_ext
+#: model:ir.model,name:account_payroll_ext.model_account_account
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__account_id
+msgid "Account"
+msgstr "Cuenta"
 
 #. module: account_payroll_ext
 #: model:ir.actions.act_window,name:account_payroll_ext.action_view_account_move_payroll
@@ -23,7 +34,26 @@ msgid "Account move payroll"
 msgstr "Asientos contables de nómina"
 
 #. module: account_payroll_ext
+#: model:ir.actions.act_window,name:account_payroll_ext.action_view_account_move_payroll_1
+msgid "Account move payroll principal"
+msgstr "Generar asientos contables nómina"
+
+#. module: account_payroll_ext
+#: model:ir.actions.act_window,name:account_payroll_ext.action_view_account_payroll_import
+#: model:ir.model,name:account_payroll_ext.model_account_payroll_import
+#: model:ir.ui.menu,name:account_payroll_ext.menu_account_payroll_import
+msgid "Account payroll import"
+msgstr "Importar registros de nóminas"
+
+#. module: account_payroll_ext
+#: model:ir.model,name:account_payroll_ext.model_account_payroll_import_lines
+msgid "Account payroll import lines"
+msgstr "Línes de importación asientos contables nómina"
+
+#. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_needaction
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_needaction
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_needaction
 msgid "Action Needed"
 msgstr "Acción"
 
@@ -34,6 +64,8 @@ msgstr "Estas seguro que desea confirmar?"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_attachment_count
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_attachment_count
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_attachment_count
 msgid "Attachment Count"
 msgstr "Contador"
 
@@ -54,18 +86,29 @@ msgstr "Concatenación"
 
 #. module: account_payroll_ext
 #: model_terms:ir.actions.act_window,help:account_payroll_ext.action_view_account_move_payroll
+#: model_terms:ir.actions.act_window,help:account_payroll_ext.action_view_account_move_payroll_1
+#: model_terms:ir.actions.act_window,help:account_payroll_ext.action_view_account_payroll_import
 msgid "Create new record"
 msgstr "Crear nuevo registro"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__create_uid
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__create_uid
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__create_date
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__create_date
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__create_date
 msgid "Created on"
 msgstr "Creado en"
+
+#. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__credit
+msgid "Credit"
+msgstr "Haber"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__month
@@ -74,11 +117,20 @@ msgstr "Mes actual"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__date
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__date
 msgid "Date"
 msgstr "Fecha"
 
 #. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__debit
+msgid "Debit"
+msgstr "Debe"
+
+#. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_account__display_name
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__display_name
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__display_name
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__display_name
 #: model:ir.model.fields,field_description:account_payroll_ext.field_res_company__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
@@ -95,27 +147,35 @@ msgstr "Borrador"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__employee_id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__employee_id
 #: model_terms:ir.ui.view,arch_db:account_payroll_ext.view_account_move_payroll_ext_search
 msgid "Employee"
 msgstr "Empleado"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__employee_name
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__employee_name
 msgid "Employee name"
 msgstr "Nombre del empleado"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_follower_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_follower_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_follower_ids
 msgid "Followers"
 msgstr "Seguidores"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_channel_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_channel_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_channel_ids
 msgid "Followers (Channels)"
 msgstr "Seguidores del canal/modelo"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_partner_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_partner_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Seguidores"
 
@@ -130,25 +190,48 @@ msgid "Group By"
 msgstr "Agrupar por"
 
 #. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_account__id
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__id
 #: model:ir.model.fields,field_description:account_payroll_ext.field_res_company__id
 msgid "ID"
-msgstr ""
+msgstr "Identificación"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_needaction
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_unread
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_needaction
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_unread
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_needaction
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_has_error
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_has_sms_error
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_has_error
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_has_sms_error
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_has_error
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__amount
+msgid "Import"
+msgstr "Importe"
+
+#. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__import_line_ids
+msgid "Import lines"
+msgstr "Líneas"
+
+#. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_is_follower
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_is_follower
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_is_follower
 msgid "Is Follower"
 msgstr "Es un seguidor"
 
@@ -158,23 +241,37 @@ msgid "Is done"
 msgstr "Esta heccho"
 
 #. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_account__is_payroll_account
+msgid "Is payroll account"
+msgstr "Cuenta para asientos nómina"
+
+#. module: account_payroll_ext
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_account____last_update
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll____last_update
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import____last_update
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines____last_update
 #: model:ir.model.fields,field_description:account_payroll_ext.field_res_company____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__write_uid
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__write_uid
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__write_date
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__write_date
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__write_date
 msgid "Last Updated on"
 msgstr "Última actualización"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_main_attachment_id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_main_attachment_id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_main_attachment_id
 msgid "Main Attachment"
 msgstr "Adjunto"
 
@@ -190,11 +287,15 @@ msgstr "Grupo de permisos asientos contables de nómina"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_has_error
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_has_error
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_has_error
 msgid "Message Delivery error"
 msgstr "Mensaje de error!"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_ids
 msgid "Messages"
 msgstr "Mensajes"
 
@@ -204,44 +305,64 @@ msgid "Mjs"
 msgstr "Msj"
 
 #. module: account_payroll_ext
+#: model:ir.ui.menu,name:account_payroll_ext.menu_principal_account_move_payroll
+msgid "Move payroll"
+msgstr "Generar asientos contables nómina"
+
+#. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__name
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__name
 #: model_terms:ir.ui.view,arch_db:account_payroll_ext.view_account_move_payroll_ext_form
 msgid "Name"
 msgstr "Nombre"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_needaction_counter
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_needaction_counter
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Número de acciones"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_has_error_counter
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_has_error_counter
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_has_error_counter
 msgid "Number of errors"
 msgstr "Número de errores"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_needaction_counter
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_needaction_counter
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_needaction_counter
 msgid "Number of messages which requires an action"
 msgstr "Número de errores requeridos en la acción"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_has_error_counter
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_has_error_counter
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Número de errores con mensajes de error en la entrega"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__message_unread_counter
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__message_unread_counter
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__message_unread_counter
 msgid "Number of unread messages"
 msgstr ""
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__project_id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__project_id
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__project_id
 #: model_terms:ir.ui.view,arch_db:account_payroll_ext.view_account_move_payroll_ext_search
 msgid "Project BIM"
 msgstr "Obra"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_has_sms_error
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_has_sms_error
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr ""
 
@@ -252,20 +373,28 @@ msgstr "Estado"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_unread
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_unread
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_unread
 msgid "Unread Messages"
 msgstr ""
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_unread_counter
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_unread_counter
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__website_message_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__website_message_ids
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__website_message_ids
 msgid "Website Messages"
 msgstr ""
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,help:account_payroll_ext.field_account_move_payroll__website_message_ids
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import__website_message_ids
+#: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__website_message_ids
 msgid "Website communication history"
 msgstr ""

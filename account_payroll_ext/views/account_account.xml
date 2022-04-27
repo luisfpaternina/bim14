@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherit_tree_view_account_account_bim" model="ir.ui.view">
+        <field name="name">inherit.account.account.tree</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_list"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[(@name='user_type_id')]" position="after">
+                <field name="is_payroll_account" widget="boolean_toggle"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>     
