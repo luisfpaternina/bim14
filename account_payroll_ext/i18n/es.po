@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 19:29+0000\n"
-"PO-Revision-Date: 2022-04-27 19:29+0000\n"
+"POT-Creation-Date: 2022-04-27 20:51+0000\n"
+"PO-Revision-Date: 2022-04-27 20:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -61,6 +61,11 @@ msgstr "Acción"
 #: model_terms:ir.ui.view,arch_db:account_payroll_ext.view_account_move_payroll_ext_form
 msgid "Are you sure you want to do this?"
 msgstr "Estas seguro que desea confirmar?"
+
+#. module: account_payroll_ext
+#: model_terms:ir.ui.view,arch_db:account_payroll_ext.view_account_payroll_import_form
+msgid "Are you sure?"
+msgstr ""
 
 #. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_attachment_count
@@ -142,6 +147,7 @@ msgstr "Hecho"
 
 #. module: account_payroll_ext
 #: model:ir.model.fields.selection,name:account_payroll_ext.selection__account_move_payroll__state__draft
+#: model:ir.model.fields.selection,name:account_payroll_ext.selection__account_payroll_import__state__draft
 msgid "Draft"
 msgstr "Borrador"
 
@@ -360,6 +366,11 @@ msgid "Project BIM"
 msgstr "Obra"
 
 #. module: account_payroll_ext
+#: model_terms:ir.ui.view,arch_db:account_payroll_ext.view_account_payroll_import_form
+msgid "SEND RECORDS"
+msgstr "ENVIAR"
+
+#. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__message_has_sms_error
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__message_has_sms_error
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import_lines__message_has_sms_error
@@ -367,7 +378,13 @@ msgid "SMS Delivery error"
 msgstr ""
 
 #. module: account_payroll_ext
+#: model:ir.actions.server,name:account_payroll_ext.actions_from_account_payroll_import
+msgid "Send records payroll import"
+msgstr "Enviar registros importados para asientos nómina"
+
+#. module: account_payroll_ext
 #: model:ir.model.fields,field_description:account_payroll_ext.field_account_move_payroll__state
+#: model:ir.model.fields,field_description:account_payroll_ext.field_account_payroll_import__state
 msgid "State"
 msgstr "Estado"
 
@@ -398,3 +415,8 @@ msgstr ""
 #: model:ir.model.fields,help:account_payroll_ext.field_account_payroll_import_lines__website_message_ids
 msgid "Website communication history"
 msgstr ""
+
+#. module: account_payroll_ext
+#: model:ir.model.fields.selection,name:account_payroll_ext.selection__account_payroll_import__state__send
+msgid "send"
+msgstr "Enviado"

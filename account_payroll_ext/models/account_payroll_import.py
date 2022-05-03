@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 import logging
 from datetime import datetime
 
+
 class AccountPayrollImport(models.Model):
     _name = 'account.payroll.import'
     _inherit = 'mail.thread'
