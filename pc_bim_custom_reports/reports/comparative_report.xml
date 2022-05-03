@@ -158,30 +158,16 @@
                         </tbody>
                     </table>
                 </div>
-                <t t-foreach="o.budget_id.asset_ids" t-as="ai">
-                                <table width="100%" class="table table-sm main_table" style="font-size:10px;width:100%;">
-                                    <tr>
-                                        <th>Crédito o Descuento</th>
-                                        <th>Valor</th>
-                                        <th>Afecta a</th>
-                                        <th>Total</th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span t-field="ai.asset_id"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="ai.value"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="ai.affect_ids"/>
-                                        </td>
-                                        <td>
-                                            <span t-field="ai.total"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </t>
+                <table class="pull-right" style="width:40%;align:right">
+                    <t>
+                        <t t-foreach="budget.asset_ids" t-as="asset">
+                            <tr t-if="asset.asset_id.show_on_report">
+                                <td class="text-left" colspan="5"><strong><span t-field="asset.asset_id.desc"/></strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="asset.total" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                             </tr>
+                        </t>
+                    </t>
+                </table>
               </div>
             </t>
           </t>

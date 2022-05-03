@@ -88,3 +88,25 @@ class AccountMovePayroll(models.Model):
                 a.check_in.strftime("%m")
                 logging.info("###############")
                 logging.info(a.check_in.strftime("%m"))
+
+
+class AccountMovePayrollLines(models.Model):
+    _name = 'account.move.payroll.lines'
+    _inherit = 'mail.thread'
+    _description = 'Account move payroll lines'
+
+    project_id = fields.Many2one(
+        'bim.project',
+        string="Project BIM")
+    debit = fields.Float(
+        string="Debit")
+    credit = fields.Float(
+        string="Credit")
+    amount = fields.Float(
+        string="Import")
+    account_id = fields.Many2one(
+        'account.account',
+        string="Account")
+    move_payroll_id = fields.Many2one(
+        'account.move.payroll',
+        string="Accont payroll")
