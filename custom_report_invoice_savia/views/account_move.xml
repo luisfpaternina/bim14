@@ -8,7 +8,7 @@
 
             <!--AGREGAR CAMPOS DE CERTIFICACIONES -->
             <xpath expr="//field[@name='budget_id']" position="after">
-                <field name="project_id" invisible="1"/>
+                <field name="project_id" invisible="1" required="1"/>
                 <field name="bim_masive_certification_ids" widget="many2many_tags" attrs="{'invisible': [('project_id', '=', False)]}"/>
                 <field name="bim_masive_chapter_ids" widget="many2many_tags" attrs="{'invisible': [('project_id', '=', False)]}"/>
             </xpath>
