@@ -12,7 +12,8 @@
                 string="Certificación Licitaciones"
                 type="action"
                 class="btn-primary"
-                groups="base_bim_2.group_user_bim"/>
+                groups="base_bim_2.group_user_bim"
+                attrs="{'invisible': [('type','!=','certification')]}"/>
             </xpath>
 
         </field>

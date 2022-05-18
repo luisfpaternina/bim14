@@ -25,9 +25,68 @@ class BimCertificationReportWizard2(models.TransientModel):
         ('asset', 'Assets and discounts'),
         ('normal','Regular Totals'),
     ], string="Totalization", default='asset')
+    project_id = fields.Many2one('bim.project', "Project", related='budget_id.project_id')
+    text = fields.Boolean('Notes', default=True)
+    measures = fields.Boolean('Measurement', default=True)
+    images = fields.Boolean('Images', default=True)
+    filter_ok = fields.Boolean('Add filter')
+    notes_ok = fields.Boolean('Include Notes', default=True)
+    show_amount_and_price = fields.Boolean('Show Amount and Price', default=True)
+    space_ids = fields.Many2many('bim.budget.space', string='Spaces')
+    object_ids = fields.Many2many('bim.object', string='Project object')
+    ev = fields.Boolean('Earned Value', default=True)
+    projection = fields.Boolean('Projection', default=True)
+    bim_parts = fields.Boolean(default=True)
+    bim_attendance = fields.Boolean(default=True)
+    bim_invoices = fields.Boolean(default=True)
+    bim_picking_out = fields.Boolean(default=True)
+    bim_open_balance = fields.Boolean(default=True)
 
 
+    @api.model
+    def get_total_filter(self):
+        space_ids = self.space_ids.ids
+        object_ids = self.object_ids.ids
+        budget = self.budget_id
+        records = budget.concept_ids.filtered(lambda c: not c.parent_id and c.type == 'chapter')
+        total_aux = total_eqp = total_lab = total_mat = 0
 
+        for concept in records:
+            lis = []
+            dep_ids = self.get_departures(concept.child_ids,lis)
+            dep_ids = set(dep_ids)
+            for dep in self.env['bim.concepts'].browse(dep_ids):
+                qty = 0
+                for mea in dep.measuring_ids:
+                    if self.filter_type == 'space':
+                        if mea.space_id and mea.space_id.id in space_ids:
+                            qty += mea.amount_subtotal
+
+                    elif self.filter_type == 'object':
+                        if mea.space_id and mea.space_id.object_id and mea.space_id.object_id.id in object_ids:
+                            qty += mea.amount_subtotal
+
+                total_aux += (dep.aux_amount_count * qty) / dep.quantity
+                total_eqp += (dep.equip_amount_count * qty) / dep.quantity
+                total_lab += (dep.labor_amount_count * qty) / dep.quantity
+                total_mat += (dep.material_amount_count * qty) / dep.quantity
+        return {'MO':total_lab,'MT':total_mat,'EQ':total_eqp,'AX':total_aux}
+    
+    @api.model
+    def get_total(self, resource):
+        budget = self.budget_id
+        records = budget.concept_ids.filtered(lambda c: c.type == resource)
+        total = 0
+
+    def get_departures(self, child_ids, dep_ids):
+        res = dep_ids
+        for record in child_ids:
+            if record.type in ['departure']:
+                res.append(record.id)
+            if record.child_ids:
+                self.get_departures(record.child_ids,res)
+        return res
+    
     ### TOTALES POR CAPITULO ###
     # Origen
     @api.model
