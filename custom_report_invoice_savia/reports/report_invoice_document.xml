@@ -30,7 +30,7 @@
                     <t t-if="stage">
                     <tr>
                         <td style="text-align: justify !important;page-break-before: avoid !important;">
-                            <span t-esc="stage.concept_id.note"/>
+                            <span t-esc="stage.concept_id.code"/>:<span t-esc="stage.concept_id.note"/>
                         </td>
                         <td style="text-align: right !important;">
                             <span t-esc="stage.concept_id.quantity"/>

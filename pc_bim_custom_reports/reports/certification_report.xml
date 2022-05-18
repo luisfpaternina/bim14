@@ -143,21 +143,91 @@
                     </table>
                 </div>
                 <t>
+                     <!-- TOTALES CON FILTRO -->
+                <t t-if="o.filter_ok">
+                    <t t-set="total_filter" t-value="o.get_total_filter()"/>
+
+                    <table class="pull-right" style="width:40%;align:right">
+                        <t>
+                            <tr t-if="total_filter['MT']">
+                                <td class="text-left" colspan="5"><strong>Total Materiales</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="total_filter['MT']" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+
+                            <tr t-if="total_filter['MO'] > 0">
+                                <td class="text-left" colspan="5"><strong>Total Mano de Obra</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="total_filter['MO']" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+
+                            <tr t-if="total_filter['EQ'] > 0">
+                                <td class="text-left" colspan="5"><strong>Total Equipos</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="total_filter['EQ']" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+
+                            <tr t-if="total_filter['AX'] > 0">
+                                <td class="text-left" colspan="5"><strong>Otros</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="total_filter['AX']" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+                            <tr class="border-black o_subtotal">
+                                <td class="text-left" colspan="5"><strong>TOTAL</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="total_filter['MT']+total_filter['MO']+total_filter['EQ']+total_filter['AX']" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+                        </t>
+                    </table>
+                </t>
+
+                <!-- TOTALES SIN FILTRO -->
+                <t t-if="not o.filter_ok">
+                    <table class="pull-right" style="width:40%;align:right">
+                        <t t-if="o.total_type == 'asset' and budget.asset_ids">
+                            <t t-foreach="budget.asset_ids" t-as="asset">
+                                <tr t-if="asset.asset_id.show_on_report">
+                                    <td class="text-left" colspan="5"><strong><span t-field="asset.asset_id.desc"/></strong></td>
+                                    <td class="text-right" colspan="2"><strong><span t-esc="asset.total" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                                </tr>
+                            </t>
+                        </t>
+
+                        <t t-if="not budget.asset_ids or o.total_type == 'normal'">
+                            <t t-set="MT" t-value="round(o.get_total('material'),2)"/>
+                            <tr t-if="MT > 0" style="">
+                                <td class="text-left" colspan="5"><strong>Total Materiales</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="MT" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+
+                            <t t-set="MO" t-value="round(o.get_total('labor'),2)"/>
+                            <tr t-if="MO > 0">
+                                <td class="text-left" colspan="5"><strong>Total Mano de Obra</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="MO" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+
+                            <t t-set="EQ" t-value="round(o.get_total('equip'),2)"/>
+                            <tr t-if="EQ > 0">
+
+                                <td class="text-left" colspan="5"><strong>Total Equipos</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="EQ" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+
+                            <t t-set="AX" t-value="round(o.get_total('aux'),2)"/>
+                            <tr t-if="AX > 0">
+                                <td class="text-left" colspan="5"><strong>Otros</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-esc="budget.balance-(MT+MO+EQ)" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
+                            </tr>
+                            <tr class="border-black o_subtotal">
+                                <td class="text-left" colspan="5"><strong>TOTAL</strong></td>
+                                <td class="text-right" colspan="2"><strong><span t-field="budget.balance"/></strong></td><!--(MT+MO+EQ+AX)-->
+                            </tr>
+                        </t>
+                    </table>
+                </t>
+
+                <t t-if="o.notes_ok">
                      <div class="row pt-1 pb-auto" >
                        <div class="col-12 text-justify">
-                          <span t-raw="budget.obs"/>
-                            <table class="pull-right" style="width:40%;align:right">
-                                <t>
-                                    <t t-foreach="budget.asset_ids" t-as="asset">
-                                        <tr t-if="asset.asset_id.show_on_report">
-                                            <td class="text-left" colspan="5"><strong><span t-field="asset.asset_id.desc"/></strong></td>
-                                            <td class="text-right" colspan="2"><strong><span t-esc="asset.total" t-options="{'widget': 'monetary', 'display_currency': budget.currency_id}"/></strong></td>
-                                        </tr>
-                                    </t>
-                                </t>
-                            </table>
+                          <span t-raw="budget.obs" style="line-height:11pt;"/>
                        </div>
                     </div>
+                </t>
                 </t>
               </div>
             </t>
