@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherit_view_form_bim_concepts_pc" model="ir.ui.view">
+        <field name="name">bim.concepts.form.inherit</field>
+        <field name="model">bim.concepts</field>
+        <field name="inherit_id" ref="base_bim_2.view_form_bim_concepts"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[(@name='id_bim')]" position="after">
+                <field name="percentage_on_sale"/>
+                <field name="percentage_sale_value" widget="progressbar" invisible="1"/>
+                <field name="cost_of_sale"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

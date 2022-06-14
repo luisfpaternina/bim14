@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 12:18+0000\n"
-"PO-Revision-Date: 2022-04-27 12:18+0000\n"
+"POT-Creation-Date: 2022-06-14 12:03+0000\n"
+"PO-Revision-Date: 2022-06-14 12:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+msgid "<strong>Otros</strong>"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
@@ -28,16 +33,29 @@ msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+msgid "<strong>Total Equipos</strong>"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+msgid "<strong>Total Mano de Obra</strong>"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
+msgid "<strong>Total Materiales</strong>"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "AMOUNT"
 msgstr "IMPORTE"
 
 #. module: pc_bim_custom_reports
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
-msgid "Afecta a"
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__filter_ok
+msgid "Add filter"
 msgstr ""
 
 #. module: pc_bim_custom_reports
@@ -53,12 +71,37 @@ msgstr ""
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields.selection,name:pc_bim_custom_reports.selection__bim_certification_report_wizard2__total_type__asset
 msgid "Assets and discounts"
-msgstr ""
+msgstr "Haberes y descuentos"
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
 msgid "BUDGET"
 msgstr "PRESUPUESTO"
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__bim_attendance
+msgid "Bim Attendance"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__bim_invoices
+msgid "Bim Invoices"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__bim_open_balance
+msgid "Bim Open Balance"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__bim_parts
+msgid "Bim Parts"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__bim_picking_out
+msgid "Bim Picking Out"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__budget_id
@@ -72,7 +115,7 @@ msgstr "Presupuesto"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Budget."
-msgstr "Presupuesto"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model,name:pc_bim_custom_reports.model_bim_budget
@@ -103,7 +146,7 @@ msgstr "CÓDIGO"
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
 msgid "CONCEPT"
-msgstr ""
+msgstr "CONCEPTO"
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
@@ -136,9 +179,7 @@ msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.actions.report,name:pc_bim_custom_reports.id_report_template_compare_2
-#: model:ir.actions.report,name:pc_bim_custom_reports.id_template_origin_cert_report
-#: model:ir.actions.report,name:pc_bim_custom_reports.report_template_certification_lic
-msgid "Certificación licitaciones"
+msgid "Certificación licitaciones comparativo"
 msgstr ""
 
 #. module: pc_bim_custom_reports
@@ -173,6 +214,16 @@ msgid "Concept"
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model:ir.model,name:pc_bim_custom_reports.model_bim_concepts
+msgid "Concept (Chapters-Sub-Chapters-Items-Resources)"
+msgstr "Conceptos (Capítulos-Sub-Capítulos-Elementos-Recursos)"
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_concepts__cost_of_sale
+msgid "Cost of sale"
+msgstr "Costo de venta"
+
+#. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__create_uid
 msgid "Created by"
 msgstr "Creado por"
@@ -181,13 +232,6 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__create_date
 msgid "Created on"
 msgstr "Creado en"
-
-#. module: pc_bim_custom_reports
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
-msgid "Crédito o Descuento"
-msgstr ""
 
 #. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
@@ -205,13 +249,19 @@ msgstr "DIFERENCIA"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Difference."
-msgstr "Diferencia"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_budget__display_name
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__display_name
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_concepts__display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__ev
+msgid "Earned Value"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
@@ -228,12 +278,24 @@ msgstr "Certificación General"
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_budget__id
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__id
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_concepts__id
 msgid "ID"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__images
+msgid "Images"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__notes_ok
+msgid "Include Notes"
 msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_budget____last_update
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2____last_update
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_concepts____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
@@ -246,6 +308,11 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__measures
+msgid "Measurement"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__text
@@ -289,6 +356,11 @@ msgid "PROJECT"
 msgstr "OBRA"
 
 #. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_concepts__percentage_on_sale
+msgid "Percentage on sale"
+msgstr "Porcentaje costo venta"
+
+#. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Previous"
@@ -322,15 +394,26 @@ msgstr "Imprimir Tipo"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Printing Date"
-msgstr "Fecha"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__project_id
 #, python-format
 msgid "Project"
 msgstr "Obra"
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__object_ids
+msgid "Project object"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__projection
+msgid "Projection"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
@@ -364,17 +447,32 @@ msgid "Report grouping form."
 msgstr ""
 
 #. module: pc_bim_custom_reports
+#: model:ir.actions.report,name:pc_bim_custom_reports.id_template_origin_cert_report
+#: model:ir.actions.report,name:pc_bim_custom_reports.report_template_certification_lic
+msgid "Reporte Certificación licitaciones"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__show_amount_and_price
+msgid "Show Amount and Price"
+msgstr ""
+
+#. module: pc_bim_custom_reports
+#: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__space_ids
+msgid "Spaces"
+msgstr ""
+
+#. module: pc_bim_custom_reports
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "TOTALS"
 msgstr ""
 
 #. module: pc_bim_custom_reports
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
-msgid "Total"
-msgstr ""
+#: code:addons/pc_bim_custom_reports/models/bim_concepts.py:0
+#, python-format
+msgid "The percentage value must be between 0 and 100"
+msgstr "El porcentaje debe ser de 0 a 100"
 
 #. module: pc_bim_custom_reports
 #: model:ir.model.fields,field_description:pc_bim_custom_reports.field_bim_certification_report_wizard2__total_type
@@ -392,14 +490,7 @@ msgstr "UNIDAD"
 #: code:addons/pc_bim_custom_reports/wizard/bim_certification_report.py:0
 #, python-format
 msgid "Unit"
-msgstr "Unidad"
-
-#. module: pc_bim_custom_reports
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.certification_report_2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.compare_cert_report2
-#: model_terms:ir.ui.view,arch_db:pc_bim_custom_reports.template_origin_cert_report2
-msgid "Valor"
-msgstr "Valor"
+msgstr ""
 
 #. module: pc_bim_custom_reports
 #: model:ir.model,name:pc_bim_custom_reports.model_bim_certification_report_wizard2

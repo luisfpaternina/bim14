@@ -23,6 +23,7 @@
         'security/ir.model.access.csv',
         'wizard/bim_certification_report.xml',
         'views/bim_budget.xml',
+        'views/bim_concepts.xml',
         'reports/certification_report.xml',
         'reports/comparative_report.xml',
         'reports/origin_certification_report.xml',
