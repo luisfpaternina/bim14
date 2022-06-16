@@ -9,6 +9,7 @@
             <xpath expr="//field[(@name='id_bim')]" position="after">
                 <field name="percentage_on_sale"/>
                 <field name="percentage_sale_value" widget="progressbar" invisible="1"/>
+                <field name="percentage_value"/>
                 <field name="cost_of_sale"/>
             </xpath>
 

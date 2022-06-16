@@ -15,6 +15,9 @@ class BimConcepts(models.Model):
     cost_of_sale = fields.Float(
         string="Cost of sale",
         compute="calculated_cost_of_sale")
+    percentage_value = fields.Float(
+        string="Percentaje value",
+        compute="calculated_cost_of_sale")
     
 
     @api.constrains('percentage_on_sale')
@@ -26,9 +29,13 @@ class BimConcepts(models.Model):
     
     @api.depends('percentage_on_sale', 'amount_fixed')
     def calculated_cost_of_sale(self):
-    # CALCULAR COSTO DE VENTA
+    # CALCULAR COSTO DE VENTA Y PORCENTAJE
         for record in self:
             if record.amount_fixed > 0:
-                record.cost_of_sale = (record.percentage_on_sale * record.amount_fixed) / 100
+                subtotal = (record.percentage_on_sale * record.amount_fixed) / 100
+                record.percentage_value = subtotal
+                total = subtotal + record.amount_fixed
+                record.cost_of_sale = total
             else:
                 record.cost_of_sale = 0
+                record.percentage_value = 0
